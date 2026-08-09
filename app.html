@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUOR | Panel general</title>
+  <meta name="description" content="Tu panel personal en SUOR: tareas, calendario y finanzas mensuales.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%97%82%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="cargaOverlay" class="carga-overlay"><div class="spinner"></div><p>Cargando tu panel...</p></div>
+
+  <header class="topbar">
+    <div>
+      <button href="index.html"><span class="brand">SUOR</span></button>
+      <h1>Panel general</h1>
+      <p id="fechaActual"></p>
+      <p id="usuarioActivo" class="usuario-activo"></p>
+    </div>
+    <button id="cerrarSesionBtn" class="btn-salir" type="button">Cerrar sesión</button>
+  </header>
+
+  <main class="layout">
+    <section class="hero-card">
+      <div>
+        <h2>Tu centro personal</h2>
+        <p>Organiza tareas, calendario, gastos y futuros módulos desde un solo lugar.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="module-btn activo" data-modulo="tareas">Tareas</button>
+        <button class="module-btn" data-modulo="finanzas">Finanzas</button>
+      </div>
+    </section>
+
+    <section id="moduloTareas" class="module-section">
+      <div class="grid-dos">
+        <section class="card">
+          <h2>Agregar tarea</h2>
+          <div class="form-grid">
+            <label class="campo"><span>Nombre de la tarea</span><input type="text" id="nombreTarea" placeholder="Ejemplo: estudiar base de datos"></label>
+            <label class="campo"><span>Sección</span><select id="seccionTarea"></select></label>
+            <label class="campo" id="campoFechaInicio"><span id="labelFechaInicio">Fecha inicio</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="fechaInicioTareaBtn"><span class="selector-icono" aria-hidden="true">📅</span><span class="selector-texto" id="fechaInicioTareaTexto">Elegir fecha</span></button>
+                <input type="hidden" id="fechaInicioTarea">
+              </div>
+            </label>
+            <label class="campo" id="campoFechaFin"><span>Fecha fin</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="fechaFinTareaBtn"><span class="selector-icono" aria-hidden="true">📅</span><span class="selector-texto" id="fechaFinTareaTexto">Elegir fecha</span></button>
+                <input type="hidden" id="fechaFinTarea">
+              </div>
+            </label>
+            <label class="campo" id="campoHoraInicio"><span id="labelHoraInicio">Hora inicio</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="horaInicioBtn"><span class="selector-icono" aria-hidden="true">🕒</span><span class="selector-texto" id="horaInicioTexto">Elegir hora</span></button>
+                <input type="hidden" id="horaInicio">
+              </div>
+            </label>
+            <label class="campo" id="campoHoraFin"><span>Hora fin</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="horaFinBtn"><span class="selector-icono" aria-hidden="true">🕒</span><span class="selector-texto" id="horaFinTexto">Elegir hora</span></button>
+                <input type="hidden" id="horaFin">
+              </div>
+            </label>
+            <p id="ayudaSeccion" class="muted span-2"></p>
+            <button id="agregarTareaBtn" class="span-2">Guardar tarea</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Secciones rápidas</h2>
+          <p class="muted">Presiona una sección para ver tareas relacionadas ordenadas por fecha.</p>
+          <div id="botonesSecciones" class="quick-sections-grupos"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Próximas tareas</h2>
+        <p class="muted">Lo más cercano en el tiempo, sin importar la sección.</p>
+        <div id="listaProximas" class="lista-cards"></div>
+      </section>
+
+      <section class="card calendario-card">
+        <div class="calendario-header">
+          <button id="mesAnterior" class="btn-icon" type="button" aria-label="Mes anterior">‹</button>
+          <div class="calendario-titulo">
+            <h2 id="mesActual"></h2>
+            <button id="irHoyBtn" class="btn-hoy" type="button">Hoy</button>
+          </div>
+          <button id="mesSiguiente" class="btn-icon" type="button" aria-label="Mes siguiente">›</button>
+        </div>
+        <div class="dias-semana">
+          <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+        </div>
+        <div id="calendario" class="calendario"></div>
+      </section>
+    </section>
+
+    <section id="moduloFinanzas" class="module-section oculto">
+      <div class="grid-dos">
+        <section class="card">
+          <h2>Organizador financiero</h2>
+          <div class="form-grid">
+            <label class="campo"><span>Mes a organizar</span>
+              <div class="mes-selector">
+                <button type="button" id="finanzaMesAnteriorBtn" class="btn-icon-sm" aria-label="Mes anterior">‹</button>
+                <div class="selector-wrap selector-wrap-mes">
+                  <button type="button" class="selector-btn" id="mesFinanzaBtn"><span class="selector-icono" aria-hidden="true">📆</span><span class="selector-texto" id="mesFinanzaTexto">Elegir mes</span></button>
+                  <input type="hidden" id="mesFinanza">
+                </div>
+                <button type="button" id="finanzaMesSiguienteBtn" class="btn-icon-sm" aria-label="Mes siguiente">›</button>
+              </div>
+            </label>
+            <label class="campo"><span>Ingreso mensual</span><input type="number" id="ingresoMensual" placeholder="Monto mensual S/" min="0" step="0.01"></label>
+            <button id="guardarIngresoBtn" class="span-2">Guardar monto</button>
+          </div>
+
+          <h3>Agregar gasto</h3>
+          <div class="form-grid">
+            <label class="campo"><span>Nombre del gasto</span><input type="text" id="nombreGasto" placeholder="Ejemplo: Internet, pasaje, comida"></label>
+            <label class="campo"><span>Categoría</span><select id="categoriaGasto">
+              <option value="Gastos fijos">Gastos fijos</option>
+              <option value="Suscripciones">Suscripciones</option>
+              <option value="Comida">Comida</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Estudio">Estudio</option>
+              <option value="Ahorro">Ahorro</option>
+              <option value="Otros">Otros</option>
+            </select></label>
+            <label id="campoCategoriaOtro" class="campo oculto span-2"><span>Nombre de la categoría</span><input type="text" id="categoriaOtro" placeholder="Ejemplo: familia, préstamo, regalo"></label>
+            <label class="campo"><span>Monto</span><input type="number" id="montoGasto" placeholder="Monto S/" min="0.01" step="0.01"></label>
+            <label class="campo"><span>Fecha límite</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="fechaLimiteGastoBtn"><span class="selector-icono" aria-hidden="true">📅</span><span class="selector-texto" id="fechaLimiteGastoTexto">Elegir fecha</span></button>
+                <input type="hidden" id="fechaLimiteGasto">
+              </div>
+            </label>
+            <label class="campo"><span>Fecha en que pagaré</span>
+              <div class="selector-wrap">
+                <button type="button" class="selector-btn" id="fechaPagoGastoBtn"><span class="selector-icono" aria-hidden="true">📅</span><span class="selector-texto" id="fechaPagoGastoTexto">Elegir fecha</span></button>
+                <input type="hidden" id="fechaPagoGasto">
+              </div>
+            </label>
+            <button id="agregarGastoBtn">Agregar gasto</button>
+          </div>
+        </section>
+
+        <section class="card dashboard-card">
+          <h2>Dashboard</h2>
+          <p id="tituloMesDashboard" class="muted"></p>
+          <div class="money-grid">
+            <div><span>Ingreso</span><strong id="dashIngreso">S/ 0.00</strong></div>
+            <div><span>Gastado</span><strong id="dashGastado">S/ 0.00</strong></div>
+            <div><span>Restante</span><strong id="dashRestante">S/ 0.00</strong></div>
+            <div><span>Usado</span><strong id="dashPorcentaje">0%</strong></div>
+          </div>
+          <div class="progress"><div id="barraGasto"></div></div>
+          <div id="barrasCategorias" class="barras-categorias"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2 id="tituloGastosMes">Gastos del mes</h2>
+        <div id="listaGastos" class="lista-cards"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="modal" class="modal oculto">
+    <div class="modal-content">
+      <button id="cerrarModal" class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <h2 id="modalTitulo"></h2>
+      <div id="modalLista" class="lista-cards"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

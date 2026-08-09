@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUOR | Organiza tu día y tu dinero</title>
+  <meta name="description" content="SUOR es tu panel personal para organizar tareas, tu calendario y tus finanzas mensuales en un solo lugar, con tus datos protegidos por usuario.">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%97%82%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">SUOR</a>
+      <nav class="nav-links">
+        <a href="#modulos">Qué organiza</a>
+        <a href="#secciones">Secciones</a>
+        <a href="#como-funciona">Cómo funciona</a>
+      </nav>
+      <div class="nav-actions" id="navAcciones">
+        <!-- landing.js decide qué botones mostrar según si hay sesión activa -->
+      </div>
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#modulos">Qué organiza</a>
+      <a href="#secciones">Secciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <div class="nav-mobile-acciones" id="navMobileAcciones"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-texto reveal">
+          <span class="eyebrow">Tu semana, ordenada de verdad</span>
+          <h1>Un solo lugar para tus <span class="subrayado">tareas</span>, tu <span class="subrayado">calendario</span> y tu <span class="subrayado">dinero</span> del mes.</h1>
+          <p class="hero-sub">SUOR junta lo que normalmente vive repartido en cinco apps distintas: pendientes, fechas importantes, gastos fijos y cuánto te queda para llegar a fin de mes. Todo bajo tu cuenta, visible solo para ti.</p>
+
+          <div class="hero-cta" id="heroCta">
+            <!-- landing.js llena esto: "Ir a mi panel" si ya hay sesión, o Iniciar sesión / Crear cuenta -->
+          </div>
+
+          <div class="hero-nota" id="heroNota">Comprobando tu sesión...</div>
+        </div>
+
+        <div class="hero-visual reveal" id="heroVisual" aria-hidden="true">
+          <div class="mockup-stack" id="mockupStack">
+            <div class="mockup-card mockup-tareas">
+              <p class="mockup-card-title">Próximas tareas</p>
+              <div class="mockup-fila"><span class="mockup-dot dot-estudio"></span><span>Entregar informe · hoy</span></div>
+              <div class="mockup-fila"><span class="mockup-dot dot-trabajo"></span><span>Reunión de equipo · mañana</span></div>
+              <div class="mockup-fila"><span class="mockup-dot dot-personal"></span><span>Renovar DNI · jue</span></div>
+            </div>
+            <div class="mockup-card mockup-calendario">
+              <p class="mockup-card-title">Julio</p>
+              <div class="mockup-grid" id="mockupGrid"></div>
+            </div>
+            <div class="mockup-card mockup-finanzas">
+              <p class="mockup-card-title">Resumen del mes</p>
+              <div class="mockup-money">
+                <div><span>Ingreso</span><strong>S/ 2,300</strong></div>
+                <div><span>Restante</span><strong class="ok">S/ 640</strong></div>
+              </div>
+              <div class="mockup-progress"><div style="width:72%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#modulos" class="scroll-hint" aria-label="Bajar para ver más">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="modulos" id="modulos">
+      <div class="section-head reveal">
+        <span class="eyebrow">Qué organiza SUOR</span>
+        <h2>Tres cosas que normalmente se te escapan por separado</h2>
+      </div>
+
+      <div class="modulos-grid">
+        <article class="modulo-card reveal">
+          <div class="modulo-icono">📅</div>
+          <h3>Tareas y calendario</h3>
+          <p>Registra tareas de estudio, trabajo o proyectos personales con fecha de inicio y fin. Míralas todas en un calendario mensual o en tu lista de próximas.</p>
+        </article>
+        <article class="modulo-card reveal">
+          <div class="modulo-icono">💰</div>
+          <h3>Finanzas mensuales</h3>
+          <p>Define tu ingreso del mes, registra cada gasto por categoría y mira al instante cuánto llevas gastado y cuánto te queda, con la fecha en que realmente pagarás.</p>
+        </article>
+        <article class="modulo-card reveal">
+          <div class="modulo-icono">🔒</div>
+          <h3>Solo tú lo ves</h3>
+          <p>Cada tarea, gasto y perfil está protegido por seguridad a nivel de fila en Supabase: tu cuenta solo puede leer y editar su propia información.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secciones" id="secciones">
+      <div class="section-head reveal">
+        <span class="eyebrow">Hecho a tu medida</span>
+        <h2>Cada sección se comporta como debería</h2>
+        <p class="section-sub">No todo se organiza igual: un cumpleaños es una fecha, un turno de trabajo es un horario, un pago pendiente es una fecha límite. SUOR le pide a cada sección solo lo que necesita.</p>
+      </div>
+
+      <div class="secciones-grid">
+        <div class="grupo-preview reveal">
+          <h4>General</h4>
+          <div class="tag-row">
+            <span class="tag">📚 Estudio</span><span class="tag">💼 Trabajo</span><span class="tag">🏠 Personal</span><span class="tag">💰 Económico</span>
+          </div>
+        </div>
+        <div class="grupo-preview reveal">
+          <h4>Fechas importantes</h4>
+          <div class="tag-row">
+            <span class="tag">🎂 Cumpleaños</span><span class="tag">📝 Exámenes / entregas</span>
+          </div>
+        </div>
+        <div class="grupo-preview reveal">
+          <h4>Financiero</h4>
+          <div class="tag-row">
+            <span class="tag">🏦 Gastos fijos</span><span class="tag">📱 Suscripciones</span><span class="tag">🧾 Pagos pendientes</span>
+          </div>
+        </div>
+        <div class="grupo-preview reveal">
+          <h4>Organización</h4>
+          <div class="tag-row">
+            <span class="tag">🕒 Trabajo / turnos</span><span class="tag">🎯 Metas personales</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="como-funciona" id="como-funciona">
+      <div class="section-head reveal">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2>De cero a tu panel en menos de un minuto</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso reveal">
+          <span class="paso-num">1</span>
+          <h3>Crea tu cuenta</h3>
+          <p>Con tu correo y una contraseña. Tus datos quedan asociados solo a tu usuario.</p>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">2</span>
+          <h3>Agrega tareas y gastos</h3>
+          <p>Elige la sección, y SUOR te pide justo los campos que esa sección necesita.</p>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">3</span>
+          <h3>Revisa tu panel</h3>
+          <p>Calendario, próximas tareas y el estado de tu mes, siempre a la vista.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final reveal">
+      <div class="cta-final-inner">
+        <h2>Empieza a organizar tu SUOR hoy</h2>
+        <p>Es gratis y toma menos de un minuto crear tu cuenta.</p>
+        <div class="hero-cta" id="ctaFinal"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="nav-brand small">SUOR</span>
+    <p>Organiza tu día y tu dinero en un solo panel personal.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/landing.js"></script>
+</body>
+</html>

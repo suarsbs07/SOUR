@@ -1,0 +1,152 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#2563eb; --secondary:#0f766e; --accent:#7c3aed;
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0;
+  --display:"Space Grotesk",Arial,Helvetica,sans-serif;
+  --body:Arial,Helvetica,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.01em}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--secondary);background:rgba(15,118,110,.1);padding:6px 13px;border-radius:999px;margin-bottom:16px}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visto{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:14px;padding:14px 24px;font-weight:700;font-size:15px;cursor:pointer;font-family:var(--body);transition:transform .15s ease,filter .15s ease,box-shadow .15s ease}
+.btn-primario{background:linear-gradient(135deg,var(--secondary),var(--primary));color:white;box-shadow:0 14px 30px rgba(37,99,235,.28)}
+.btn-primario:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.btn-secundario{background:white;color:var(--text);border:1.5px solid var(--line)}
+.btn-secundario:hover{border-color:var(--primary);color:var(--primary)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid transparent}
+.btn-ghost:hover{background:rgba(37,99,235,.08)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-nota{margin-top:14px;font-size:13px;color:var(--muted);font-weight:600;min-height:18px}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(248,250,252,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(226,232,240,.8)}
+.nav-inner{max-width:1180px;margin:auto;display:flex;align-items:center;gap:28px;padding:16px 22px}
+.nav-brand{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:1px;background:linear-gradient(135deg,var(--secondary),var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-brand.small{font-size:18px}
+.nav-links{display:flex;gap:26px;flex:1}
+.nav-links a{font-weight:600;font-size:14.5px;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-actions{display:flex;gap:10px}
+.nav-actions .btn{padding:10px 18px;font-size:14px}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:transparent;border:none;cursor:pointer}
+.nav-burger span{display:block;height:2px;background:var(--text);border-radius:2px}
+.nav-mobile{display:none;flex-direction:column;gap:4px;padding:10px 22px 20px;border-top:1px solid var(--line)}
+.nav-mobile a{padding:10px 4px;font-weight:700;color:var(--text)}
+.nav-mobile-acciones{display:flex;gap:10px;margin-top:8px}
+.nav-mobile-acciones .btn{flex:1}
+.nav.abierto .nav-mobile{display:flex}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;max-width:1180px;margin:auto;padding:64px 22px 40px;overflow:hidden}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;z-index:-1;pointer-events:none}
+.hero-blob-1{width:420px;height:420px;background:radial-gradient(circle,var(--primary),transparent 70%);top:-140px;left:-120px}
+.hero-blob-2{width:380px;height:380px;background:radial-gradient(circle,var(--accent),transparent 70%);bottom:-160px;right:-100px}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero-texto h1{font-size:44px;line-height:1.14;font-weight:700;margin-bottom:20px}
+.subrayado{position:relative;white-space:nowrap}
+.subrayado::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:10px;background:rgba(37,99,235,.16);z-index:-1;border-radius:4px}
+.hero-sub{font-size:16.5px;color:var(--muted);max-width:52ch}
+
+/* Signature element: tarjeta apiladas tipo "panel real" con parallax suave */
+.hero-visual{perspective:1400px}
+.mockup-stack{position:relative;width:100%;max-width:400px;margin:auto;transform-style:preserve-3d;transition:transform .25s ease-out}
+.mockup-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 20px 50px rgba(15,23,42,.12);position:absolute;width:280px}
+.mockup-card-title{font-family:var(--display);font-weight:700;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.mockup-tareas{top:0;left:0;z-index:3}
+.mockup-fila{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;padding:7px 0;border-top:1px solid var(--line)}
+.mockup-fila:first-of-type{border-top:none}
+.mockup-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.dot-estudio{background:#2563eb}.dot-trabajo{background:#0f766e}.dot-personal{background:#7c3aed}
+.mockup-calendario{top:150px;left:130px;z-index:2}
+.mockup-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.mockup-grid span{display:block;width:100%;aspect-ratio:1;border-radius:4px;background:#eef2f7}
+.mockup-finanzas{top:300px;left:20px;z-index:1}
+.mockup-money{display:flex;gap:18px;margin-bottom:12px}
+.mockup-money span{display:block;font-size:11.5px;color:var(--muted);font-weight:700}
+.mockup-money strong{font-size:18px}
+.mockup-money strong.ok{color:var(--secondary)}
+.mockup-progress{height:8px;background:#eef2f7;border-radius:999px;overflow:hidden}
+.mockup-progress div{height:100%;background:linear-gradient(135deg,var(--secondary),var(--primary))}
+
+.scroll-hint{display:flex;justify-content:center;margin-top:40px}
+.scroll-hint span{width:26px;height:42px;border:2px solid var(--line);border-radius:999px;position:relative}
+.scroll-hint span::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;border-radius:2px;background:var(--primary);animation:baja 1.6s ease infinite}
+@keyframes baja{0%{opacity:1;top:8px}70%{opacity:0;top:22px}100%{opacity:0;top:8px}}
+
+/* ---------- Secciones generales ---------- */
+section{max-width:1180px;margin:auto;padding:76px 22px}
+.section-head{max-width:640px;margin:0 auto 44px;text-align:center}
+.section-head h2{font-size:32px;margin-bottom:6px}
+.section-sub{color:var(--muted);margin-top:12px;font-size:15.5px}
+
+/* Módulos */
+.modulos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.modulo-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;transition:transform .2s ease,box-shadow .2s ease}
+.modulo-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(15,23,42,.09)}
+.modulo-icono{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:24px;border-radius:15px;background:linear-gradient(135deg,#e0f2fe,#ede9fe);margin-bottom:16px}
+.modulo-card h3{font-size:19px;margin-bottom:8px}
+.modulo-card p{color:var(--muted);font-size:14.5px}
+
+/* Secciones a tu medida */
+.secciones{background:linear-gradient(180deg,transparent,rgba(37,99,235,.045) 20%,rgba(37,99,235,.045) 80%,transparent)}
+.secciones-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grupo-preview{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.grupo-preview h4{font-size:12.5px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin-bottom:14px}
+.tag-row{display:flex;flex-direction:column;gap:8px}
+.tag{background:#f1f5f9;border:1px solid var(--line);border-radius:11px;padding:8px 11px;font-size:13.5px;font-weight:600}
+
+/* Cómo funciona */
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.paso{position:relative;padding-top:8px}
+.paso-num{font-family:var(--display);font-size:15px;font-weight:700;color:var(--primary);background:rgba(37,99,235,.1);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.paso h3{font-size:17.5px;margin-bottom:6px}
+.paso p{color:var(--muted);font-size:14.5px}
+
+/* CTA final */
+.cta-final{padding-top:20px;padding-bottom:20px}
+.cta-final-inner{background:linear-gradient(135deg,var(--secondary),var(--primary),var(--accent));border-radius:32px;padding:56px 40px;text-align:center;color:white;box-shadow:0 30px 70px rgba(37,99,235,.25)}
+.cta-final-inner h2{font-size:30px;margin-bottom:8px}
+.cta-final-inner p{color:rgba(255,255,255,.9);margin-bottom:6px}
+.cta-final .hero-cta{justify-content:center}
+.cta-final .btn-secundario{background:white;border-color:transparent}
+.cta-final .btn-ghost{color:white}
+.cta-final .btn-ghost:hover{background:rgba(255,255,255,.15)}
+
+/* Footer */
+.footer{text-align:center;padding:40px 22px 50px;color:var(--muted)}
+.footer p{font-size:13.5px;margin-top:6px}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-sub{margin:0 auto}
+  .hero-cta{justify-content:center}
+  .hero-visual{margin-top:20px;height:420px}
+  .mockup-stack{transform:none!important}
+  .nav-links{display:none}
+  .nav-actions{display:none}
+  .nav-burger{display:flex}
+  .modulos-grid{grid-template-columns:1fr}
+  .secciones-grid{grid-template-columns:1fr 1fr}
+  .pasos{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hero-texto h1{font-size:33px}
+  .mockup-card{width:230px}
+  .mockup-tareas{left:0}
+  .mockup-calendario{left:70px;top:170px}
+  .mockup-finanzas{left:0;top:340px}
+  .hero-visual{height:470px}
+  .secciones-grid{grid-template-columns:1fr}
+  .cta-final-inner{padding:40px 22px}
+  section{padding:56px 18px}
+}

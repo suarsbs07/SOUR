@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUOR | Iniciar sesión</title>
+  <meta name="description" content="SUOR: organiza tus tareas, calendario y finanzas mensuales desde un solo panel personal.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%97%82%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+  <main class="auth-container">
+    <section class="auth-card">
+      <div class="auth-info">
+        <span class="brand-pill">SUOR</span>
+        <h1>Organiza tu día y tu dinero</h1>
+        <p>Una página personal para controlar tareas, calendario, gastos y próximos módulos que quieras agregar.</p>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <h2>Iniciar sesión</h2>
+        <p class="form-subtitle">Entra a tu panel personal.</p>
+
+        <label for="loginEmail">Correo</label>
+        <input type="email" id="loginEmail" placeholder="ejemplo@gmail.com" autocomplete="email" required>
+
+        <label for="loginPassword">Contraseña</label>
+        <input type="password" id="loginPassword" placeholder="Tu contraseña" autocomplete="current-password" required>
+        <a href="#" id="forgotLink" class="forgot-link">¿Olvidaste tu contraseña?</a>
+
+        <button type="submit">Entrar a SUOR</button>
+        <p class="mensaje" id="loginMensaje"></p>
+
+        <p class="auth-link">¿No tienes cuenta? <a href="register.html">Crear cuenta</a></p>
+        <p class="auth-link"><a href="index.html">← Volver al inicio</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script>
+    // Si ya hay sesión activa, no tiene sentido mostrar el login: vamos directo al panel.
+    supabaseClient.auth.getSession().then(({data:{session}})=>{
+      if(session) window.location.href = "app.html";
+    });
+  </script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

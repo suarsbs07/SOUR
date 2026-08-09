@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUOR | Nueva contraseña</title>
+  <meta name="description" content="Elige una nueva contraseña para tu cuenta de SUOR.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%97%82%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+  <main class="auth-container">
+    <section class="auth-card">
+      <div class="auth-info">
+        <span class="brand-pill">SUOR</span>
+        <h1>Crea una nueva contraseña</h1>
+        <p>Estás a un paso de volver a entrar a tu panel personal.</p>
+      </div>
+
+      <form id="recuperarForm" class="auth-form">
+        <h2>Nueva contraseña</h2>
+        <p class="form-subtitle" id="recuperarSubtitulo">Verificando tu enlace de recuperación...</p>
+
+        <label for="nuevaPassword">Nueva contraseña</label>
+        <input type="password" id="nuevaPassword" placeholder="Mínimo 6 caracteres" minlength="6" autocomplete="new-password" required disabled>
+
+        <label for="confirmarNuevaPassword">Confirmar nueva contraseña</label>
+        <input type="password" id="confirmarNuevaPassword" placeholder="Repite tu contraseña" minlength="6" autocomplete="new-password" required disabled>
+
+        <button type="submit" id="recuperarBtn" disabled>Guardar nueva contraseña</button>
+        <p class="mensaje" id="recuperarMensaje"></p>
+
+        <p class="auth-link"><a href="login.html">← Volver a iniciar sesión</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/recuperar.js"></script>
+</body>
+</html>
